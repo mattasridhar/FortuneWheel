@@ -1,0 +1,26 @@
+{
+  "name": "fortune_wheel",
+  "version": "1.0.0",
+  "description": "A Simple application created for fun purposes",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattasridhar/FortuneWheel.git"
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "Sridhar Matta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattasridhar/FortuneWheel/issues"
+  },
+  "homepage": "https://github.com/mattasridhar/FortuneWheel#readme",
+  "dependencies": {
+    "electron": "^10.0.0"
+  }
+}

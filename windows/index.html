@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fortune Wheel</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo"
+          ><img src="../assets/images/icon.svg" style="height: 5%; width: 5%; padding-top: 2px;"></img>Fortune Wheel</a
+        >
+        <ul class="right">
+            <a id="enrollBtn" >Show tutorial</a>
+        </ul>
+      </div>
+        <div id="tutorial" class="right" hidden>
+            <div class="row right">
+              <div class="col s12 m7">
+                <div class="card">
+                  <div class="card-image">
+                    <img src="../assets/images/iconGif.gif">
+                    <span class="card-title">Card Title</span>
+                  </div>
+                  <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+              </div>
+            </div></div>
+    </nav>
+
+    <div class="center" id="loadDiv" style="padding-top: 25px;">
+        <a class="btn-floating btn-large waves-effect waves-light red" id="loadBtn"><i class="material-icons">add</i></a>
+        <a class="waves-effect waves-teal btn-flat" id="loadBtn1">Load Fortuners</a>
+    </div>
+    
+    
+    <div id="content" style="background-color: #e8f2fc;" hidden>
+        <div class="column" style="float: left; width: 50vw; background-color: #e8f2fc;">
+            <div class="col s12 m6">
+              <div class="card darken-1">
+                <div class="card-content center" style="background-color: #e8f2fc;">
+                  <span class="card-title">Fortuners</span>
+                  <ul id="list" style="background-color: #e8f2fc;"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+            <div class="row">
+                <div class="col s12 m6">
+                <div class="card darken-1">
+                    <div class="card-content center">
+                    <span class="card-title">Fortune Wheel</span>
+                    <div id="wheel">
+                        <canvas id="canvas" width="400" height="400"></canvas>
+                     </div>
+                     <a id="spin" style="padding-top: 25px;"><i class="large material-icons">arrow_drop_up</i></a>
+                     <!-- <div id="spin">
+                         <a><i class="large material-icons">arrow_drop_up</i></a>
+                         <a>SPIN!</a>
+                     </div> -->
+                        
+                        
+                        <br>
+                        <!-- <a id="spin"><i class="large material-icons" style="width: 30vw; height: 30vh;">arrow_drop_up</i>Spin!</a> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+
+
+
+
+    <script src="../customHandlers/HomeScreenHandler.js"></script>
+  </body>
+</html>
