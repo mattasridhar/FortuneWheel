@@ -1,14 +1,12 @@
 const { ipcRenderer } = require("electron");
 const fs = require("fs");
 
-let filePath = "";
 let fileName = "";
 let participants = {};
 let labels = [];
 let labelsForReload = [];
 let winnerName = "";
 
-// let labels = labels;
 let degree = 0;
 let velocity = 0;
 let velocityReduction = 0;
@@ -17,6 +15,7 @@ let lock = false;
 let hasSpun = false;
 let indexShown = -1;
 let stepCounter = 0;
+let showTutorial = false;
 
 let colorPalette = [];
 let colorPaletteForReload = [];
@@ -38,14 +37,23 @@ const winnerDiv = document.getElementById("winnerDiv");
 const winnerNameDiv = document.getElementById("winnerName");
 const defaultWinner = `Awaiting to be SPUN! <img src="../assets/images/await.gif" style="width: 55px; height: 45px;"></img>`;
 const tutorialSteps = {
-  step0: "This is Step 0",
-  step1: "This is Step 1",
-  step2: "This is Step 2",
+  step0:
+    "File Menu Options: \n\nClick on the 'File' Menu for options such as FullScreen, Reload of the Application or to Quit the Application. \nYou can use the respective shortcuts as well [Cmd+F / Ctrl+F, Cmd+R / Ctrl+R, Cmd+Q / Ctrl+Q] respectively.",
+  step1:
+    "Load and Play: \n\nClick on the '+' icon and select only JSON file to upload. \nClick on 'SPIN' button to rotate the Wheel, \nDouble Click on the List item to remove it from the Wheel. \n\nOn each spin, find the Winner highlighted above.",
+  step2:
+    "Enrolling new Fortuners: \n\nClick on 'Actions' tab and navigate to 'Enroll Fortuners' or use the Shortcut 'Option+E / Alt+E' for enrolling a new fortuner. \nIn the dialog box, Provide the name of the new Fortuner. \n[Optional] You may choose to add the new Fortuner into your DataFile. \n[Optional] You may choose a specific color be assigned to the new Fortuner. \nClick on the 'Enroll Fortuner' button.",
+  step3:
+    "Clearing the screen: \n\nClick on 'Actions' tab and navigate to 'Clear Fortuners' or use the Shortcut 'Option+C / Alt+C' for clearing the screen.",
+  step4:
+    "Reload and Play again: \n\nOnce all the fortuners have won, click on the 'Reload Fortuners' button below the Wheel to Reload the player information and Spin again!",
 };
 const tutorialGifs = {
-  step0: "../assets/images/iconGif.gif",
-  step1: "../assets/images/await.gif",
-  step2: "../assets/images/await(1).gif",
+  step0: "../assets/images/FileMenu.gif",
+  step1: "../assets/images/loadFile.gif",
+  step2: "../assets/images/enroll.gif",
+  step3: "../assets/images/clearScreen.gif",
+  step4: "../assets/images/reloadData.gif",
 };
 
 tutorialDiv.setAttribute("hidden", "hidden");
@@ -53,41 +61,51 @@ reloadDiv.setAttribute("hidden", "hidden");
 
 // Tutorial handlers
 document.getElementById("tutorialBtn").addEventListener("click", () => {
-  tutorialDiv.removeAttribute("hidden");
-  loadDiv.setAttribute("hidden", "hidden");
-  winnerDiv.setAttribute("hidden", "hidden");
-  content.setAttribute("hidden", "hidden");
-  tutorialTextDiv.innerText = tutorialSteps["step0"];
-  tutorialGifDiv.src = tutorialGifs["step0"];
+  showTutorial = !showTutorial;
+  if (showTutorial) {
+    tutorialDiv.removeAttribute("hidden");
+    loadDiv.setAttribute("hidden", "hidden");
+    winnerDiv.setAttribute("hidden", "hidden");
+    content.setAttribute("hidden", "hidden");
+    tutorialTextDiv.innerText = tutorialSteps["step0"];
+    tutorialGifDiv.src = tutorialGifs["step0"];
+  } else {
+    finishTutorial();
+  }
 });
 
 document.getElementById("skip").addEventListener("click", () => {
+  finishTutorial();
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  stepCounter += 1;
+  if (stepCounter === 5) {
+    finishTutorial();
+  }
+  tutorialTextDiv.innerText = tutorialSteps[`step${stepCounter}`];
+  tutorialGifDiv.src = tutorialGifs[`step${stepCounter}`];
+});
+
+// Change the UI when tutorial is skipped or is completed
+const finishTutorial = () => {
   tutorialDiv.setAttribute("hidden", "hidden");
   loadDiv.removeAttribute("hidden");
   winnerDiv.removeAttribute("hidden");
   content.setAttribute("hidden", "hidden");
   stepCounter = 0;
   clearCanvas();
-});
-
-document.getElementById("next").addEventListener("click", () => {
-  stepCounter += 1;
-  tutorialTextDiv.innerText = tutorialSteps[`step${stepCounter}`];
-  tutorialGifDiv.src = tutorialGifs[`step${stepCounter}`];
-});
+};
 
 // Receive the fortuner's Name that are sent by the main.js which it received from EnrollHandler.js
 ipcRenderer.on("fortunerName:enroll", (e, input) => {
-  console.log("SRI here: ", input);
   const jsonInput = JSON.parse(input);
-  console.log("SRI cond: ", Object.keys(participants).includes(jsonInput.name));
   if (
     jsonInput.shouldSave &&
     fileName.length !== 0 &&
     !Object.keys(participants).includes(jsonInput.name)
   ) {
     participants[jsonInput.name] = jsonInput.color;
-    console.log("SRI in shouldSave: ", participants);
     fs.writeFileSync(fileName, JSON.stringify(participants));
     clearCanvas();
     readJson(fileName);
@@ -241,7 +259,6 @@ const readJson = (file) => {
   let rawdata = fs.readFileSync(file);
   participants = JSON.parse(rawdata);
   for (var key of Object.keys(participants)) {
-    // console.log(key + " -> " + participants[key]);
     loadFortuners(key);
     labels.push(key);
     labelsForReload.push(key);
@@ -258,7 +275,6 @@ const renderFortuneWheel = () => {
     labels.splice(indexShown, 1);
     colorPalette.splice(indexShown, 1);
   }
-  // console.log("SRI labels: ", labels);
   degree = randomize(0, 360);
   pies = colorPalette.length;
   pieSlice = 360 / pies;

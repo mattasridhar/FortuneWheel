@@ -24,13 +24,7 @@ app.on("ready", () => {
 });
 
 // capture the fortunerName sent by the ipcRenderer from the EnrollHandler.js
-ipcMain.on("BtnType", (e, type) => {
-  console.log("fBtnType: " + type); //gets logged in the Terminal Console
-});
-
-// capture the fortunerName sent by the ipcRenderer from the EnrollHandler.js
 ipcMain.on("fortunerName:enroll", (e, fortuner) => {
-  console.log("fortunerName from DialogWindow: " + fortuner); //gets logged in the Terminal Console
   windowObj.webContents.send("fortunerName:enroll", fortuner);
   dialogWindow.close();
 });
@@ -153,7 +147,7 @@ if (process.env.NODE_ENV !== "production") {
       {
         label: "Toggle DevTools",
         accelerator: process.platform === "darwin" ? "F12" : "F12",
-        role: "toggleDevTools", //Another style of doing what we are doing above..
+        role: "toggleDevTools",
       },
     ],
   });
