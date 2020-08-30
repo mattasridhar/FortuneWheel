@@ -23,20 +23,13 @@ app.on("ready", () => {
   });
 });
 
-/* document.getElementById("enrollBtn").addEventListener("click", function (e) {
-  console.log("Enrol clicked");
-  //create enroll dialog window
-  dialogWindow = new BrowserWindow(enrollDialogParams);
-  openEnrollDialog(dialogWindow);
-}); */
-
 // capture the fortunerName sent by the ipcRenderer from the EnrollHandler.js
-ipcMain.on("BtnType", function (e, type) {
+ipcMain.on("BtnType", (e, type) => {
   console.log("fBtnType: " + type); //gets logged in the Terminal Console
 });
 
 // capture the fortunerName sent by the ipcRenderer from the EnrollHandler.js
-ipcMain.on("fortunerName:enroll", function (e, fortuner) {
+ipcMain.on("fortunerName:enroll", (e, fortuner) => {
   console.log("fortunerName from DialogWindow: " + fortuner); //gets logged in the Terminal Console
   windowObj.webContents.send("fortunerName:enroll", fortuner);
   dialogWindow.close();
@@ -93,7 +86,7 @@ const enrollDialogParams = {
   title: "Enroll Fortuners",
   titleBarStyle: "hidden", //Hides the top bar in the Window
   width: 500,
-  height: 300,
+  height: 400,
   backgroundColor: "#e8f2fc",
   show: true,
   icon: path.join(__dirname, "favicon.ico"),

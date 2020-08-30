@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Enroll Fortuners</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-  </head>
-  <body>
-    <form>
-      <legend>
-        <h2>Enroll New Fortuners here:</h2>
-      </legend>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          id="fortunerName"
-          aria-describedby="inputDesc"
-          placeholder="Fortuner Name"
-          autofocus
-        />
+
+<head>
+  <title>Enroll Fortuners</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <script type="text/javascript" src="../assets/scriptsLib/ntc.js"></script>
+</head>
+
+<body class="flex">
+  <form>
+    <nav>
+      <div class="nav-wrapper">
+        <a class="brand-logo center"><img src="../assets/images/favicon.gif"
+            style="height: 15%; width: 15%; padding-top: 2px; padding-right: 5px; padding-left: 5px;"></img>Enroll</a>
       </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action">
-        Enroll Fortuner
-        <i class="fa fa-send"></i>
-      </button>
-    </form>
-    <script src="../customHandlers/EnrollHandler.js"></script>
-  </body>
+    </nav>
+    <div class="form-group">
+      <div class="row">
+        <div class="input-field col s6 form-group">
+          <input type="text" class="form-control" id="fortunerName" aria-describedby="inputDesc"
+            placeholder="Fortuner Name" autofocus />
+          <p>
+            <label>
+              <input type="checkbox" id="saveToFile" />
+              <span>Save to file</span>
+            </label>
+          </p>
+        </div>
+        <div class="input-field col s12">
+          <label for="textarea1" id="colorName">Pick a color.</label>
+          <br>
+          <div class="center" id="colorPicker" style="padding-top: 25px;">
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #3e4444;"><i
+                class="material-icons" id="#3e4444">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #ada397;"><i
+                class="material-icons" id="#ada397">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #b9936c;"><i
+                class="material-icons" id="#b9936c">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #405d27;"><i
+                class="material-icons" id="#405d27">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #c1946a;"><i
+                class="material-icons" id="#c1946a">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #50394c;"><i
+                class="material-icons" id="#50394c">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color: #618685;"><i
+                class="material-icons" id="#618685">format_paint</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light" style="background-color:  #bc5a45;"><i
+                class="material-icons" id="#bc5a45">format_paint</i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="btn waves-effect waves-light" type="submit" name="action">
+            Enroll Fortuner
+            <i class="fa fa-send"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+  <script src="../customHandlers/EnrollHandler.js"></script>
+</body>
+
 </html>
