@@ -1,6 +1,7 @@
 Fortune Wheel: A Simple application I created for fun.
 
 TABLE OF CONTENTS\
+
  <pre> INTRODUCTION </pre>
 <pre> SPECIFICATIONS </pre>
 <pre> SOFTWARES REQUIRED </pre>
@@ -17,6 +18,7 @@ INTRODUCTION\
 <pre><i>If the above video doesn't seem to work, you can find the same clip of Demo at (~/readme_figs/DemoVideos/FortuneWheelDemo.mov) location.</i></pre>
 
 SPECIFICATIONS\
+
  <pre>A desktop application that takes a list of players:</pre>
 <ul>
 <li> Have Tabs and Shortcuts for various different option such as Quit, FullScreen, Reload, Enroll Fortuners etc.</li>
@@ -42,6 +44,7 @@ SPECIFICATIONS\
 
 SOFTWARES REQUIRED\
  The software that are needed for the application to be edited or executed
+
 <ul>
 <li> OPERATING SYSTEM UTILIZED: MAC OS- Mojave </li>
 <li> ‘technology’ --> Node JS, HTML, JavaScript</li>
@@ -51,6 +54,7 @@ SOFTWARES REQUIRED\
 
 SOURCE CODE\
  The Source code for the application is in the ‘ElectronSortingApp’ folder
+
 <ul>
 <li> ‘src’ & 'customHandlers' --> This folder has the source code for the application which receives, processes and displays the values received from the Frontend.</li>
 <li> 'windows' --> This folder has the HTML pages utilized to display the UI to the user.</li>
@@ -128,5 +132,9 @@ The application shows the Winner on the top, in the banner as shown in Figure 9.
 ![](readme_figs/fig10.png)
 
     Figure 10: Reload Button upon all users have gotten their turn to Win.
+
+![](readme_figs/fig11.png)
+
+    Figure 11: Tutorial Section in the Navigation bar.
 
 The developer can run the Build commands and the respective executables will be created in the '/dist' location, a folder each for respective target OS.
