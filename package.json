@@ -6,10 +6,9 @@
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-osx": "electron-packager . 'FortuneWheel' --electron-version 10.0.0 --overwrite --platform=darwin --arch=x64 --icon=./assets/images/logoIcon.icns --prune=true --out=./dist",
-    "build-win32": "electron-packager . 'FortuneWheel' --electron-version 10.0.0 --platform win32 --icon ./assets/images/logoIcon.ico --out ./dist --overwrite",
-    "build-win64": "electron-packager . 'FortuneWheel' --electron-version 10.0.0 --platform win64 --icon ./assets/images/logoIcon.ico --out ./dist --overwrite",
-    "build-linux": "electron-packager . 'FortuneWheel' --electron-version 10.0.0 --platform linux --icon ./assets/images/logoIcon.png --out ./dist --overwrite"
+    "build-osx": "electron-packager . FortuneWheel --electron-version 10.0.0 --overwrite --platform=darwin --arch=x64 --icon=./assets/images/logoIcon.icns --prune=true --out=./dist",
+    "build-win": "electron-packager . FortuneWheel --electron-version 10.0.0 --platform=win --icon=./assets/images/logoIcon.ico --out=./dist --overwrite",
+    "build-linux": "electron-packager . FortuneWheel --electron-version 10.0.0 --platform=linux --icon=./assets/images/logoIcon.png --out=./dist --overwrite"
   },
   "repository": {
     "type": "git",
