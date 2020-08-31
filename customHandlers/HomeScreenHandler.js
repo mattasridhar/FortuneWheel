@@ -1,7 +1,8 @@
 const { ipcRenderer } = require("electron");
 const fs = require("fs");
+const path = require("path");
 
-let fileName = "";
+let originalFile = "";
 let participants = {};
 let labels = [];
 let labelsForReload = [];
@@ -102,13 +103,13 @@ ipcRenderer.on("fortunerName:enroll", (e, input) => {
   const jsonInput = JSON.parse(input);
   if (
     jsonInput.shouldSave &&
-    fileName.length !== 0 &&
+    originalFile.replace(/^.*[\\\/]/, "").length !== 0 &&
     !Object.keys(participants).includes(jsonInput.name)
   ) {
     participants[jsonInput.name] = jsonInput.color;
-    fs.writeFileSync(fileName, JSON.stringify(participants));
+    fs.writeFileSync(originalFile, JSON.stringify(participants));
     clearCanvas();
-    readJson(fileName);
+    readJson(originalFile);
   } else if (!Object.keys(participants).includes(jsonInput.name)) {
     labels.push(jsonInput.name);
     colorPalette.push(jsonInput.color);
@@ -184,17 +185,14 @@ ul.addEventListener("dblclick", (e) => {
 loadDiv.addEventListener("click", (e) => {
   e.preventDefault();
   // Opening the window for loading the JSON file
-  var input = document.createElement("input");
+  const input = document.createElement("input");
   input.type = "file";
 
   input.onchange = (e) => {
-    var file = e.target.files[0];
-    filePath = file.path;
-    fileName = file.name;
-    if (file.type === "application/json") {
-      readJson(file.name);
-      spinDiv.removeAttribute("hidden");
-    }
+    // const file = e.target.files[0];
+    const file = path.resolve(__dirname, e.target.files[0].path);
+    readJson(file);
+    spinDiv.removeAttribute("hidden");
   };
 
   input.click();
@@ -221,7 +219,7 @@ reloadDiv.addEventListener("mousedown", () => {
   colorPalette = [...colorPaletteForReload];
   renderFortuneWheel();
   ul.innerHTML = "";
-  for (var key of Object.keys(participants)) {
+  for (let key of Object.keys(participants)) {
     loadFortuners(key);
   }
   spinDiv.removeAttribute("hidden");
@@ -257,8 +255,9 @@ const renderAllClearWheel = () => {
 // Read the JSON file
 const readJson = (file) => {
   let rawdata = fs.readFileSync(file);
+  originalFile = file;
   participants = JSON.parse(rawdata);
-  for (var key of Object.keys(participants)) {
+  for (let key of Object.keys(participants)) {
     loadFortuners(key);
     labels.push(key);
     labelsForReload.push(key);
@@ -325,7 +324,7 @@ const setName = (degreeValue, name) => {
 // creates the Fortune wheel UI
 const createWheel = () => {
   context.clearRect(0, 0, width, width);
-  for (var i = 0; i < pies; i++) {
+  for (let i = 0; i < pies; i++) {
     createPie(degree, colorPalette[i]);
     setName(degree + pieSlice / 2, labels[i]);
     degree += pieSlice;
