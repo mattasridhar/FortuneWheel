@@ -138,7 +138,7 @@ if (process.platform === "darwin") {
     label: "",
   });
 }
-/* 
+
 //show developer tools only when on dev mode
 if (process.env.NODE_ENV !== "production") {
   mainMenuTabs.push({
@@ -151,4 +151,4 @@ if (process.env.NODE_ENV !== "production") {
       },
     ],
   });
-} */
+}
