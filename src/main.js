@@ -139,7 +139,7 @@ if (process.platform === "darwin") {
   });
 }
 
-//show developer tools only when on dev mode
+/* //show developer tools only when on dev mode
 if (process.env.NODE_ENV !== "production") {
   mainMenuTabs.push({
     label: "Developer Tools",
@@ -151,4 +151,4 @@ if (process.env.NODE_ENV !== "production") {
       },
     ],
   });
-}
+} */
