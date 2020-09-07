@@ -1,6 +1,6 @@
 Fortune Wheel: A Simple application I created for fun.
 
-TABLE OF CONTENTS
+TABLE OF CONTENTS\
 
  <pre> INTRODUCTION </pre>
 <pre> SPECIFICATIONS </pre>
@@ -9,15 +9,15 @@ TABLE OF CONTENTS
 <pre> INSTALLATION NOTES </pre>
 <pre> ABOUT THE APPLICATION </pre>
 
-INTRODUCTION
-This desktop application allows the user to load a pre-created JSON file containing the List of players or enroll the player and Spin the wheel to win while having fun!
+INTRODUCTION\
+ This desktop application allows the user to load a pre-created JSON file containing the List of players or enroll the player and Spin the wheel to win while having fun!
 <br><br>
 <b>Check out this video to see the demo.</b>
 
 <!-- [![](http://img.youtube.com/vi/975EA6fWZ2s/0.jpg)](https://www.youtube.com/watch?v=975EA6fWZ2s) -->
 <pre><i>If the above video doesn't seem to work, you can find the same clip of Demo at (~/readme_figs/DemoVideos/FortuneWheelDemo.mov) location.</i></pre>
 
-SPECIFICATIONS
+SPECIFICATIONS\
 
  <pre>A desktop application that takes a list of players:</pre>
 <ul>
@@ -42,8 +42,8 @@ SPECIFICATIONS
 <li> Have the developer tools option available for debugging to developers.</li>
 </ul>
 
-SOFTWARES REQUIRED
-The software that are needed for the application to be edited or executed
+SOFTWARES REQUIRED\
+ The software that are needed for the application to be edited or executed
 
 <ul>
 <li> OPERATING SYSTEM UTILIZED: MAC OS- Mojave </li>
@@ -52,8 +52,8 @@ The software that are needed for the application to be edited or executed
 <li> ‘build tools’ --> Electron Packager, Wine (for creating Windows build)</li>
 </ul>
 
-SOURCE CODE
-The Source code for the application is in the ‘ElectronSortingApp’ folder
+SOURCE CODE\
+ The Source code for the application is in the ‘ElectronSortingApp’ folder
 
 <ul>
 <li> ‘src’ & 'customHandlers' --> This folder has the source code for the application which receives, processes and displays the values received from the Frontend.</li>
@@ -61,8 +61,8 @@ The Source code for the application is in the ‘ElectronSortingApp’ folder
 <li> ‘assets’ --> This folder has the scripts file and the logos needed by our application.</li>
 </ul>
 
-INSTALLATION NOTES
-All the execution of this application will be done via command prompt terminal. <b>Assuming you have Node, npm and Wine already installed</b>
+INSTALLATION NOTES\
+ All the execution of this application will be done via command prompt terminal. <b>Assuming you have Node, npm and Wine already installed</b>
 
 <ol type="A">
 <li> Fortune Wheel Application’ </li>
@@ -79,8 +79,8 @@ All the execution of this application will be done via command prompt terminal. 
 	</ul>
 	</ol>
 
-ABOUT THE APPLICATION
-This application opens up a window after you have installed and initiated the step given in the ‘INSTALLATION NOTES’ section(except the 'Build' section if you are running it locally).
+ABOUT THE APPLICATION\
+ This application opens up a window after you have installed and initiated the step given in the ‘INSTALLATION NOTES’ section(except the 'Build' section if you are running it locally).
 The application loads and opens up a desktop window with only the 'Load Fortuners' button and the waiting text displayed. Figure 1 shows the screen when the application is loaded.
 
 ![](readme_figs/fig1.png)
