@@ -1,4 +1,4 @@
-Fortune Wheel: A Simple application I created for fun.
+# Fortune Wheel
 
 TABLE OF CONTENTS
 
