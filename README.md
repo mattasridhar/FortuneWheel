@@ -1,6 +1,6 @@
 Fortune Wheel: A Simple application I created for fun.
 
-TABLE OF CONTENTS\
+TABLE OF CONTENTS
 
  <pre> INTRODUCTION </pre>
 <pre> SPECIFICATIONS </pre>
@@ -17,7 +17,7 @@ INTRODUCTION\
 <!-- [![](http://img.youtube.com/vi/975EA6fWZ2s/0.jpg)](https://www.youtube.com/watch?v=975EA6fWZ2s) -->
 <pre><i>If the above video doesn't seem to work, you can find the same clip of Demo at (~/readme_figs/DemoVideos/FortuneWheelDemo.mov) location.</i></pre>
 
-SPECIFICATIONS\
+SPECIFICATIONS
 
  <pre>A desktop application that takes a list of players:</pre>
 <ul>
