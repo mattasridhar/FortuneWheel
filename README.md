@@ -1,4 +1,4 @@
-<b>Fortune Wheel:</b> A Simple application I created for fun.
+<h2>Fortune Wheel:</h2> A Simple application I created for fun.
 
 TABLE OF CONTENTS
 
