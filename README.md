@@ -1,5 +1,7 @@
 # Fortune Wheel
 
+A Simple application I created for fun.
+
 TABLE OF CONTENTS
 
  <pre> INTRODUCTION </pre>
